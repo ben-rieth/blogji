@@ -6,6 +6,7 @@ import { env } from './../env/server.mjs';
 import type { TypePost } from "../types/ContentfulPost";
 import NavBar from "./../components/molecules/NavBar";
 import Hero from "../components/molecules/Hero";
+import WIP from "../components/atoms/WIP";
 
 type HomePageProps = {
   posts: TypePost[];
@@ -23,6 +24,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       <div className="h-screen">
         <NavBar />
         <Hero />
+        <WIP />
       </div>
       
     </>
