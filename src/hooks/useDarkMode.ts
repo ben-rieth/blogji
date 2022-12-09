@@ -2,8 +2,15 @@ import { useEffect, useState } from "react"
 
 const useDarkMode = () => {
 
-    const systemPreferenceIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const  storagePreference = localStorage.getItem('theme');
+    let systemPreferenceIsDark = false;
+    if (typeof window !== 'undefined') {
+        systemPreferenceIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    let storagePreference : string | null = 'light';
+    if (typeof window !== 'undefined') {
+        storagePreference = localStorage.getItem('theme');
+    }
 
     const initial = storagePreference === 'dark' || systemPreferenceIsDark;
 
@@ -15,10 +22,10 @@ const useDarkMode = () => {
 
         if (enabled) {
             element.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
+            if (typeof window !== undefined) localStorage.setItem('theme', 'dark');
         } else {
             element.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+            if (typeof window !== undefined) localStorage.setItem('theme', 'light');
         }
 
     }, [enabled])
