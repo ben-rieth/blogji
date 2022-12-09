@@ -5,6 +5,7 @@ import { createClient } from 'contentful';
 import { env } from './../env/server.mjs';
 import type { TypePost } from "../types/ContentfulPost";
 import NavBar from "./../components/molecules/NavBar";
+import Hero from "../components/molecules/Hero";
 
 type HomePageProps = {
   posts: TypePost[];
@@ -19,8 +20,9 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
         <meta name="description" content="BLog posts written by Ben (Benji) Riethmeier" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main className="h-screen">
         <NavBar />
+        <Hero />
       </main>
     </>
   );
