@@ -20,10 +20,11 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
         <meta name="description" content="BLog posts written by Ben (Benji) Riethmeier" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen">
+      <div className="h-screen">
         <NavBar />
         <Hero />
-      </main>
+      </div>
+      
     </>
   );
 };
