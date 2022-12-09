@@ -18,11 +18,14 @@ Object.defineProperty(window, 'matchMedia', {
 import NavBar from "../../../components/molecules/NavBar";
 
 describe('NavBar Component', () => {
-    it('renders the name of the blog, a menu icon, and a search icon', () => {
+    it('renders the name of the blog, a menu icon, a search icon, and the dark mode icon', () => {
+        Storage.prototype.getItem = jest.fn(() => 'dark');
+        
         render(<NavBar />);
 
         expect(screen.getByText('Blogji')).toBeInTheDocument();
         expect(screen.getByTestId('search-icon')).toBeInTheDocument();
         expect(screen.getByTestId('menu-icon')).toBeInTheDocument();
+        expect(screen.getByTestId('moon-icon')).toBeInTheDocument();
     })
 });
