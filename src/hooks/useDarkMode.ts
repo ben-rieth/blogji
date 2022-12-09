@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 const useDarkMode = () => {
-
     let systemPreferenceIsDark = false;
     if (typeof window !== 'undefined') {
         systemPreferenceIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -13,13 +12,10 @@ const useDarkMode = () => {
     }
 
     const initial = storagePreference === 'dark' || systemPreferenceIsDark;
-
     const [enabled, setEnabled] = useState<boolean>(initial);
 
     useEffect(() => {
-
         const element = window.document.documentElement;
-
         if (enabled) {
             element.classList.add('dark');
             if (typeof window !== undefined) localStorage.setItem('theme', 'dark');
@@ -29,7 +25,7 @@ const useDarkMode = () => {
         }
 
     }, [enabled])
-
+    console.log(enabled);
     return [enabled, setEnabled] as const;
 }
 

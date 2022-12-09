@@ -1,7 +1,12 @@
 import { BsSearch } from 'react-icons/bs';
 import { RiMenuFill } from 'react-icons/ri';
+import dynamic from 'next/dynamic';
 
-import DarkModeSwitch from '../atoms/DarkModeSwitch';
+const DarkModeSwitch = dynamic(
+    () => import('../atoms/DarkModeSwitch')
+        .then((mod) => mod.default),
+    { ssr: false }
+);
 
 const NavBar = () => {
 

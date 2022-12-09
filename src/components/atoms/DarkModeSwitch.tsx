@@ -15,10 +15,14 @@ const DarkModeSwitch = () => {
         setDarkMode(!darkMode);
     }
 
-    return darkMode ? (
-            <BsMoon onClick={handleIconClick} className={iconClass} data-testid="moon-icon"/> 
-        ) : (
-            <BsSun onClick={handleIconClick} className={iconClass} data-testid="sun-icon" />
+    return (
+        <div className="hover:cursor-pointer">
+            {darkMode ? (
+                <BsMoon onClick={handleIconClick} className={iconClass} data-testid="moon-icon"/> 
+            ) : (
+                <BsSun onClick={handleIconClick} className={iconClass} data-testid="sun-icon" />
+            )}
+        </div>
     );
 }
 
