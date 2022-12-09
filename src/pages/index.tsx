@@ -21,7 +21,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
         <meta name="description" content="BLog posts written by Ben (Benji) Riethmeier" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-screen">
+      <div className="h-screen dark:bg-slate-800">
         <NavBar />
         <Hero />
         <WIP />
