@@ -23,7 +23,7 @@ describe('NavBar Component', () => {
         
         render(<NavBar />);
 
-        expect(screen.getByText('Blogji')).toBeInTheDocument();
+        expect(screen.getByText("Benji's Blog")).toBeInTheDocument();
         expect(screen.getByTestId('search-icon')).toBeInTheDocument();
         expect(screen.getByTestId('menu-icon')).toBeInTheDocument();
         expect(screen.getByTestId('moon-icon')).toBeInTheDocument();

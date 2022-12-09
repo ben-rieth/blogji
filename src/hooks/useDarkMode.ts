@@ -24,8 +24,8 @@ const useDarkMode = () => {
             if (typeof window !== undefined) localStorage.setItem('theme', 'light');
         }
 
-    }, [enabled])
-    console.log(enabled);
+    }, [enabled]);
+    
     return [enabled, setEnabled] as const;
 }
 
