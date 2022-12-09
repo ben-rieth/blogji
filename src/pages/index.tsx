@@ -3,7 +3,8 @@ import Head from "next/head";
 import { createClient } from 'contentful';
 
 import { env } from './../env/server.mjs';
-import type { TypePost } from "../types/ContentfulPost.js";
+import type { TypePost } from "../types/ContentfulPost";
+import NavBar from "./../components/molecules/NavBar";
 
 type HomePageProps = {
   posts: TypePost[];
@@ -18,9 +19,8 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
         <meta name="description" content="BLog posts written by Ben (Benji) Riethmeier" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <h1 className="text-white text-7xl font-mono">Blogji Begins</h1>
-        <h2 className="text-white text-2xl font-mono">Subtitle</h2>
+      <main className="">
+        <NavBar />
       </main>
     </>
   );
