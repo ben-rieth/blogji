@@ -1,6 +1,8 @@
 import { BsSearch } from 'react-icons/bs';
 import { IoMenu } from 'react-icons/io5';
 
+import DarkModeSwitch from '../atoms/DarkModeSwitch';
+
 const NavBar = () => {
 
     return (
@@ -9,7 +11,8 @@ const NavBar = () => {
                 <IoMenu className="w-10 h-10" data-testid="menu-icon"/>
                 <p className="text-3xl">Blogji</p>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center gap-4">
+                <DarkModeSwitch />
                 <BsSearch className="w-8 h-8"data-testid="search-icon"/>
             </div>
         </nav>
