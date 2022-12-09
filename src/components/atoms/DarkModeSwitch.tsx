@@ -7,7 +7,8 @@ const DarkModeSwitch = () => {
 
     const iconClass = classNames(
         "w-8", 
-        "h-8"
+        "h-8",
+        { "fill-slate-100": darkMode }
     ); 
 
     const handleIconClick = () => {
