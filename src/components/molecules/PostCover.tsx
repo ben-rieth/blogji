@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { PostData } from "../../types/Posts";
+import type { FC } from "react";
+import type { PostData } from "../../types/Posts";
 
 type PostCoverProps = {
     post: PostData;
