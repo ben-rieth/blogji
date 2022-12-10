@@ -1,10 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 import { bundleMDX } from 'mdx-bundler';
-import type { PostDataWithContent, PostFrontMatter } from '../types/Posts';
+import type { PostFrontMatter } from '../types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src', 'posts');
 
@@ -28,26 +26,6 @@ export const getAllPostIds = () => {
     })
 };
 
-export const getPostData = async (id: string) : Promise<PostDataWithContent> => {
-    const fullPath = path.join(postsDirectory, idToFileName(id));
-    const fileContents = fs.readFileSync(fullPath, 'utf-8');
-
-    const matterResult = matter(fileContents);
-
-    const processedContent = await remark()
-        .use(html)
-        .process(matterResult.content);
-
-    const contentHTML = processedContent.toString();
-
-    return {
-        id,
-        content: contentHTML,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-    }
-};
-
 export const getPostDataMDX = async (id: string) => {
     const fullPath = path.join(postsDirectory, idToFileName(id));
     const source = fs.readFileSync(fullPath, 'utf-8');
@@ -61,22 +39,21 @@ export const getPostDataMDX = async (id: string) => {
     }
 }
 
-export const getSortedPostsData = () => {
+export const getSortedPostsData = async () => {
     const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames.map((fileName) => {
+    const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
         const id = fileNameToId(fileName);
 
         const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const source = fs.readFileSync(fullPath, 'utf8');
 
-        const matterResult = matter(fileContents);
+        const { frontmatter } = await bundleMDX<PostFrontMatter>({ source })
 
         return {
-            id, 
-            title: matterResult.data.title,
-            date: matterResult.data.date,
-        };
-    });
+            id,
+            ...frontmatter
+        }
+    }));
 
     
     return allPostsData.sort((a, b) => {

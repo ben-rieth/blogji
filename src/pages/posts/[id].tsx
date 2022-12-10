@@ -1,26 +1,31 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import type { FC } from "react";
-import type { PostDataWithContent } from "../../types/Posts";
-import { getAllPostIds, getPostData } from "../../utils/posts";
+import { getAllPostIds, getPostDataMDX } from "../../utils/posts";
+import { getMDXComponent } from 'mdx-bundler/client';
+import type { FC} from 'react';
+import { useMemo } from 'react';
+import type { PostFrontMatter } from "../../types/Posts";
 
 type PostProps = {
-    post: PostDataWithContent;
+    id: string;
+    code: string;
+    frontmatter: PostFrontMatter;
 }
 
-const Post: FC<PostProps> = ({ post }) => {
-    return (
-        <div>
-            <Head>
-                <title>{post.title}</title>
-            </Head>
-            <p>{post.id}</p>
-            <div dangerouslySetInnerHTML={{__html: post.content}} />
-        </div>
-    );
-};
+const PostWithMDX: FC<PostProps> = ({ frontmatter, code}) => {
 
-export default Post;
+    const Component = useMemo(() => getMDXComponent(code), [code])
+
+    return (
+        <>
+            <h1>{frontmatter.title}</h1>
+            <article>
+                <Component />
+            </article>
+        </>
+    );
+}
+
+export default PostWithMDX;
 
 export const getStaticPaths : GetStaticPaths = async () => {
     const paths = getAllPostIds();
@@ -42,11 +47,11 @@ export const getStaticProps : GetStaticProps = async ({ params }) => {
         }
     }
     
-    const postData = await getPostData(params.id as string);
+    const postData = await getPostDataMDX(params.id as string);
 
     return {
         props: {
-            post: postData,
+            ...postData 
         }
     }
 }

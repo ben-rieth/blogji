@@ -4,15 +4,14 @@ import NavBar from "./../components/molecules/NavBar";
 import Hero from "../components/molecules/Hero";
 import WIP from "../components/atoms/WIP";
 import { getSortedPostsData } from "../utils/posts";
-import type { PostData } from "../types/Posts";
 import PostCover from "../components/molecules/PostCover";
+import type { PostFrontMatter } from "../types/Posts";
 
 type HomePageProps = {
-  posts: PostData[];
+  posts: (PostFrontMatter & { id: string })[];
 }
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
-  console.log(posts)
   return (
     <>
       <Head>
@@ -34,7 +33,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
 
   return {
     props: {

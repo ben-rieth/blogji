@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { FC } from "react";
-import type { PostData } from "../../types/Posts";
+import type { PostFrontMatter } from "../../types/Posts";
 
 type PostCoverProps = {
-    post: PostData;
+    post: PostFrontMatter & { id: string};
 }
 
 const PostCover: FC<PostCoverProps> = ({ post }) => {
@@ -11,6 +12,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
             <h2>{post.title}</h2>
             <p>{post.date}</p>
             <p>{post.id}</p>
+            <Link href={`/posts/${post.id}`}>Link</Link>
         </article>
     );
 }
