@@ -3,3 +3,9 @@ export type PostData = {
     date: string;
     id: string;
 }
+
+type PostContent = {
+    content: string;
+}
+
+export type PostDataWithContent = PostData & PostContent;

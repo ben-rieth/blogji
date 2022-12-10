@@ -1,15 +1,22 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import type { FC } from "react";
-import type { PostData } from "../../types/Posts";
+import type { PostDataWithContent } from "../../types/Posts";
 import { getAllPostIds, getPostData } from "../../utils/posts";
 
 type PostProps = {
-    post: PostData;
+    post: PostDataWithContent;
 }
 
 const Post: FC<PostProps> = ({ post }) => {
     return (
-        <p>{post.id}</p>
+        <div>
+            <Head>
+                <title>{post.title}</title>
+            </Head>
+            <p>{post.id}</p>
+            <div dangerouslySetInnerHTML={{__html: post.content}} />
+        </div>
     );
 };
 
@@ -35,7 +42,7 @@ export const getStaticProps : GetStaticProps = async ({ params }) => {
         }
     }
     
-    const postData = getPostData(params.id as string);
+    const postData = await getPostData(params.id as string);
 
     return {
         props: {

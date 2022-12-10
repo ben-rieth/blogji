@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
+import { PostDataWithContent } from '../types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src', 'posts');
 
@@ -24,14 +27,21 @@ export const getAllPostIds = () => {
     })
 };
 
-export const getPostData = (id: string) => {
+export const getPostData = async (id: string) : Promise<PostDataWithContent> => {
     const fullPath = path.join(postsDirectory, idToFileName(id));
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
 
     const matterResult = matter(fileContents);
 
+    const processedContent = await remark()
+        .use(html)
+        .process(matterResult.content);
+
+    const contentHTML = processedContent.toString();
+
     return {
         id,
+        content: contentHTML,
         title: matterResult.data.title,
         date: matterResult.data.date,
     }
