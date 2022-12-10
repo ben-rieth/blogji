@@ -3,7 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
-import { PostDataWithContent } from '../types/Posts';
+import { bundleMDX } from 'mdx-bundler';
+import type { PostDataWithContent, PostFrontMatter } from '../types/Posts';
 
 const postsDirectory = path.join(process.cwd(), 'src', 'posts');
 
@@ -46,6 +47,19 @@ export const getPostData = async (id: string) : Promise<PostDataWithContent> => 
         date: matterResult.data.date,
     }
 };
+
+export const getPostDataMDX = async (id: string) => {
+    const fullPath = path.join(postsDirectory, idToFileName(id));
+    const source = fs.readFileSync(fullPath, 'utf-8');
+
+    const { code, frontmatter } = await bundleMDX<PostFrontMatter>({ source });
+
+    return {
+        id,
+        frontmatter,
+        code,
+    }
+}
 
 export const getSortedPostsData = () => {
     const fileNames = fs.readdirSync(postsDirectory);
