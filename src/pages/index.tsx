@@ -1,15 +1,13 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { createClient } from 'contentful';
-
-import { env } from './../env/server.mjs';
-import type { TypePost } from "../types/ContentfulPost";
 import NavBar from "./../components/molecules/NavBar";
 import Hero from "../components/molecules/Hero";
 import WIP from "../components/atoms/WIP";
+import { getSortedPostsData } from "../utils/posts";
+import type { PostData } from "../types/Posts";
 
 type HomePageProps = {
-  posts: TypePost[];
+  posts: PostData[];
 }
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
@@ -33,18 +31,11 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const client = createClient({
-    space: env.CONTENTFUL_SPACE_ID,
-    accessToken: env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const response = await client.getEntries({
-    content_type: 'post'
-  });
+  const allPostsData = getSortedPostsData();
 
   return {
     props: {
-      posts: response.items
+      posts: allPostsData,
     }
   }
 
