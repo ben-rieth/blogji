@@ -5,6 +5,7 @@ import Hero from "../components/molecules/Hero";
 import WIP from "../components/atoms/WIP";
 import { getSortedPostsData } from "../utils/posts";
 import type { PostData } from "../types/Posts";
+import PostCover from "../components/molecules/PostCover";
 
 type HomePageProps = {
   posts: PostData[];
@@ -22,7 +23,9 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       <div className="h-screen dark:bg-slate-800">
         <NavBar />
         <Hero />
-        <WIP />
+        {posts.map((post) => (
+          <PostCover key={post.id} post={post}/>
+        ))}
       </div>
       
     </>
