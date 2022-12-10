@@ -25,6 +25,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
         {posts.map((post) => (
           <PostCover key={post.id} post={post}/>
         ))}
+        <WIP />
       </div>
       
     </>
