@@ -8,11 +8,11 @@ type PostThumbnailProps = {
 
 const PostThumbnail: FC<PostThumbnailProps> = ({ filename, alt }) => {
     return (
-        <div className="relative w-64 h-64">
+        <div className="relative aspect-video rounded">
             <Image 
                 src={`/thumbnails/${filename}`} 
                 alt={alt} 
-                className="object-cover"
+                className="object-cover rounded-lg group-hover:ring-4 group-hover:ring-sky-500"
                 fill />
         </div>
     )
