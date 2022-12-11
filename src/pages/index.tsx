@@ -4,8 +4,8 @@ import NavBar from "./../components/molecules/NavBar";
 import Hero from "../components/molecules/Hero";
 import WIP from "../components/atoms/WIP";
 import { getSortedPostsData } from "./../utils/posts";
-import PostCover from "./../components/molecules/PostCover";
 import type { PostFrontMatter } from "../types/Posts";
+import PostGrid from "../components/organisms/PostGrid";
 
 type HomePageProps = {
   posts: (PostFrontMatter & { id: string })[];
@@ -22,9 +22,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       <div className="dark:bg-slate-800">
         <NavBar />
         <Hero />
-        {posts.map((post) => (
-          <PostCover key={post.id} post={post}/>
-        ))}
+        <PostGrid posts={posts} title="Recent Posts"/>
         <WIP />
       </div>
       

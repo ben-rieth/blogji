@@ -10,12 +10,12 @@ type PostCoverProps = {
 const PostCover: FC<PostCoverProps> = ({ post }) => {
     return (
         <Link href={`/posts/${post.id}`} >
-            <article className="group dark:text-white text-black w-1/2 m-5">
+            <article className="group dark:text-white text-black m-5">
                 <PostThumbnail 
                     filename={post.coverImage} 
                     alt={post.coverImageAlt} 
                 />
-                <h2 className="font-bold text-2xl my-2 group-hover:text-sky-500">{post.title}</h2>
+                <h3 className="font-bold text-2xl my-2 group-hover:text-sky-500">{post.title}</h3>
                 <button
                     className="font-semibold underline-offset-2"
                 >
