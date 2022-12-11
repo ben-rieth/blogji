@@ -15,9 +15,9 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
                     filename={post.coverImage} 
                     alt={post.coverImageAlt} 
                 />
-                <h3 className="font-bold text-2xl 2xl:text-4xl my-2 group-hover:text-sky-500 sm:line-clamp-3 leading-snug sm:h-24 2xl:h-32">{post.title}</h3>
+                <h3 className="font-bold text-2xl 2xl:text-4xl my-2 group-hover:text-sky-500 sm:line-clamp-3 leading-snug sm:h-24 2xl:h-32 text-black dark:text-white">{post.title}</h3>
                 <button
-                    className="font-semibold underline-offset-2 sm:text-lg 2xl:text-2xl"
+                    className="font-semibold underline-offset-2 sm:text-lg 2xl:text-2xl text-black dark:text-white"
                 >
                     Read More
                 </button>
