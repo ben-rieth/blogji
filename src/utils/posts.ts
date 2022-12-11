@@ -3,14 +3,14 @@ import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import type { PostFrontMatter } from '../types/Posts';
 
-const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+const postsDirectory = path.join(process.cwd(), 'posts');
 
 const fileNameToId = (fileName: string) : string => {
-    return fileName.replace(/\.md$/, '');
+    return fileName.replace(/\.mdx$/, '');
 }
 
 const idToFileName = (id: string) : string => {
-    return `${id}.md`;
+    return `${id}.mdx`;
 }
 
 export const getAllPostIds = () => {
