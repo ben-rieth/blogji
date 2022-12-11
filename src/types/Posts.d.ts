@@ -1,4 +1,8 @@
 export type PostFrontMatter = {
     title: string;
-    date: string;
+    abstract: string;
+    publishedOn: string;
+    updatedOn: string;
+    category: string[];
+    isPublished: boolean;
 }

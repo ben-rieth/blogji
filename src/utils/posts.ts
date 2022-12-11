@@ -54,9 +54,11 @@ export const getSortedPostsData = async () => {
         }
     }));
 
+    const published = allPostsData.filter((post) => post.isPublished);
+
     
-    return allPostsData.sort((a, b) => {
-        if (a.date < b.date) {
+    return published.sort((a, b) => {
+        if (a.publishedOn < b.publishedOn) {
             return 1;
         } else {
             return -1;

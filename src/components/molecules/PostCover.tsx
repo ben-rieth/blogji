@@ -10,7 +10,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
     return (
         <article className="dark:text-white text-black">
             <h2>{post.title}</h2>
-            <p>{post.date}</p>
+            <p>{post.publishedOn}</p>
             <p>{post.id}</p>
             <Link href={`/posts/${post.id}`}>Link</Link>
         </article>
