@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
         <header className="
-            h-1/3
+            h-96
             flex justify-center items-center flex-col gap-3
             bg-gradient-to-tr from-emerald-400 to-cyan-400
         ">
