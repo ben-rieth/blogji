@@ -8,10 +8,15 @@ type BreadcrumbLinkProps = {
 
 const BreadcrumbsLink:FC<BreadcrumbLinkProps> = ({ title, href }) => {
     return (
-        <li className="text-slate-400 text-lg">
+        <li className="dark:text-slate-400 text-slate-600 text-xl">
             {href ? (
                 <>
-                    <Link href={href}>{title}</Link>
+                    <Link 
+                        href={href} 
+                        className="hover:underline"
+                    >
+                        {title}
+                    </Link>
                     &nbsp;&nbsp;&gt;&nbsp;&nbsp;
                 </>
             ) : (

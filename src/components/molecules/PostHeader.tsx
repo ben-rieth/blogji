@@ -13,7 +13,7 @@ const PostHeader:FC<PostHeaderProps> = ({ title, category }) => {
                 <BreadcrumbsLink title="Home" href="/"/>
                 <BreadcrumbsLink title={category} />
             </Breadcrumbs>
-            <h1 className="text-white text-3xl sm:text-4xl font-semibold">{title}</h1>
+            <h1 className="text-slate-800 dark:text-white text-3xl sm:text-4xl font-semibold">{title}</h1>
         </header>
     )
     
