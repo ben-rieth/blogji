@@ -7,4 +7,5 @@ export type PostFrontMatter = {
     isPublished: boolean;
     coverImage: string;
     coverImageAlt: string;
+    readingTime: number | undefined;
 }
