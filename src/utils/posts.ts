@@ -14,6 +14,52 @@ const idToFileName = (id: string) : string => {
     return `${id}.mdx`;
 }
 
+const sortByPublishedDate = (posts: (PostFrontMatter & { id: string })[]) => {
+    return posts.sort((a, b) => {
+        if (a.publishedOn < b.publishedOn) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+}
+
+const getAllPostFrontmatter = async () => {
+    const fileNames = fs.readdirSync(postsDirectory);
+
+    const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
+        const id = fileNameToId(fileName);
+
+        const fullPath = path.join(postsDirectory, fileName);
+        const source = fs.readFileSync(fullPath, 'utf8');
+
+        const { frontmatter, matter } = await bundleMDX<PostFrontMatter>({ 
+            source,
+        });
+
+        frontmatter.readingTime = Math.round(readingTime(matter.content).minutes);
+
+        return {
+            id,
+            ...frontmatter
+        }
+    }));
+
+    return allPostsData;
+}
+
+export const getAllCategoryIds = () => {
+    const categories = ['web-dev'];
+
+    return categories.map((category) => {
+        return {
+            params: {
+                id: category,
+            }
+        }
+    })
+}
+
 export const getAllPostIds = () => {
     const fileNames = fs.readdirSync(postsDirectory);
 
@@ -44,33 +90,18 @@ export const getPostDataMDX = async (id: string) => {
 }
 
 export const getSortedPostsData = async () => {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
-        const id = fileNameToId(fileName);
-
-        const fullPath = path.join(postsDirectory, fileName);
-        const source = fs.readFileSync(fullPath, 'utf8');
-
-        const { frontmatter, matter } = await bundleMDX<PostFrontMatter>({ 
-            source,
-        });
-
-        frontmatter.readingTime = Math.round(readingTime(matter.content).minutes);
-
-        return {
-            id,
-            ...frontmatter
-        }
-    }));
+    const allPostsData = await getAllPostFrontmatter();
 
     const published = allPostsData.filter((post) => post.isPublished);
 
-    
-    return published.sort((a, b) => {
-        if (a.publishedOn < b.publishedOn) {
-            return 1;
-        } else {
-            return -1;
-        }
-    })
+    return sortByPublishedDate(published);
+}
+
+export const getSortedPostsDataFromCategory = async (category: string) => {
+    const allPostsData = await getAllPostFrontmatter();
+
+    const published = allPostsData.filter((post) => post.isPublished);
+    const inCategory = published.filter((post) => post.category === category);
+
+    return sortByPublishedDate(inCategory);
 }
