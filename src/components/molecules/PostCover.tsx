@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import Link from "next/link";
 import type { FC } from "react";
 import type { PostFrontMatter } from "../../types/Posts";
@@ -10,9 +9,11 @@ type PostCoverProps = {
 }
 
 const PostCover: FC<PostCoverProps> = ({ post }) => {
-    
+
     const formattedDate = formatMMMMdoYYYY(post.publishedOn);
     
+    const minuteOrMinutes = post.readingTime === 1 ? "minute" : "minutes";
+
     return (
         <Link href={`/posts/${post.id}`} >
             <article className="group dark:text-white text-black m-5">
@@ -21,7 +22,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
                     alt={post.coverImageAlt} 
                 />
                 <p className="text-slate-400 mt-2  sm:text-lg 2xl:text-2xl">
-                    {formattedDate} • {post.readingTime} minutes
+                    {formattedDate}&nbsp;&nbsp;•&nbsp;&nbsp;{post.readingTime} {minuteOrMinutes}
                 </p>
                 <h3 className="font-bold text-2xl 2xl:text-4xl my-1 group-hover:text-sky-500 sm:line-clamp-3 leading-snug sm:h-24 2xl:h-32 text-black dark:text-white">
                     {post.title}
