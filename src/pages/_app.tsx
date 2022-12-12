@@ -8,9 +8,9 @@ const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto'})
 const MyApp: AppType = ({ Component, pageProps }) => {
   
   return (
-    <main className={`${robotoFlex.variable} font-sans`}>
+    <div className={`${robotoFlex.variable} font-sans`}>
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 };
 
