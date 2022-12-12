@@ -1,11 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { getAllPostIds, getPostDataMDX } from "../../utils/posts";
-import { getMDXComponent } from 'mdx-bundler/client';
 import type { FC} from 'react';
-import { useMemo } from 'react';
 import type { PostFrontMatter } from "../../types/Posts";
 import Layout from "../../components/layout";
 import PostHeader from "../../components/molecules/PostHeader";
+import PostArticle from "../../components/molecules/PostArticle";
 
 type PostProps = {
     id: string;
@@ -13,9 +12,7 @@ type PostProps = {
     frontmatter: PostFrontMatter;
 }
 
-const PostWithMDX: FC<PostProps> = ({ frontmatter, code}) => {
-
-    const Component = useMemo(() => getMDXComponent(code), [code])
+const Post: FC<PostProps> = ({ frontmatter, code}) => {
 
     return (
         <Layout title={frontmatter.title}>
@@ -23,14 +20,12 @@ const PostWithMDX: FC<PostProps> = ({ frontmatter, code}) => {
                 title={frontmatter.title}
                 category={frontmatter.category}
             />
-            <article className="text-white">
-                <Component />
-            </article>
+            <PostArticle articleCode={code} />
         </Layout>
     );
 }
 
-export default PostWithMDX;
+export default Post;
 
 export const getStaticPaths : GetStaticPaths = async () => {
     const paths = getAllPostIds();
