@@ -4,6 +4,7 @@ import WIP from "../../components/atoms/WIP";
 import Layout from "../../components/layout";
 import Hero from "../../components/molecules/Hero";
 import PostGrid from "../../components/organisms/PostGrid";
+import { CATEGORIES } from "../../constants/categories";
 import { type PostFrontMatter } from "../../types/Posts";
 import { getAllCategoryIds, getSortedPostsDataFromCategory } from "../../utils/posts"
 
@@ -16,9 +17,12 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
     const router = useRouter();
     const { id } = router.query;
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const category = CATEGORIES.find((category) => category.id === id)!;
+
     return (
         <Layout title={id as string}>
-            <Hero />
+            <Hero main={category.main} sub={category.sub} />
             <PostGrid posts={posts} title="Recent Posts"/>
             <WIP />
         </Layout>
