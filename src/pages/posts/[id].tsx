@@ -5,6 +5,7 @@ import type { FC} from 'react';
 import { useMemo } from 'react';
 import type { PostFrontMatter } from "../../types/Posts";
 import Layout from "../../components/layout";
+import { Breadcrumbs, BreadcrumbsLink } from "../../components/atoms/Breadcrumbs";
 
 type PostProps = {
     id: string;
@@ -18,6 +19,10 @@ const PostWithMDX: FC<PostProps> = ({ frontmatter, code}) => {
 
     return (
         <Layout title={frontmatter.title}>
+            <Breadcrumbs>
+                <BreadcrumbsLink title="Home" href="/"/>
+                <BreadcrumbsLink title={frontmatter.category} />
+            </Breadcrumbs>
             <h1 className="text-white">{frontmatter.title}</h1>
             <article className="text-white">
                 <Component />

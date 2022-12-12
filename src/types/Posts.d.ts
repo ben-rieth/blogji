@@ -3,7 +3,7 @@ export type PostFrontMatter = {
     abstract: string;
     publishedOn: string;
     updatedOn: string;
-    category: string[];
+    category: string;
     isPublished: boolean;
     coverImage: string;
     coverImageAlt: string;
