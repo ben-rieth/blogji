@@ -7,6 +7,9 @@
 
 const ContentSecurityPolicy = `
   default-src 'self';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'self';
 `;
 
 /** @type {import("next").NextConfig} */
