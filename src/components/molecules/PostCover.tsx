@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import type { FC } from "react";
 import type { PostFrontMatter } from "../../types/Posts";
+import { formatMMMMdoYYYY } from "../../utils/dates";
 import PostThumbnail from "../atoms/PostThumbnail";
 
 type PostCoverProps = {
@@ -9,7 +10,8 @@ type PostCoverProps = {
 }
 
 const PostCover: FC<PostCoverProps> = ({ post }) => {
-    const formattedDate = format(new Date(post.publishedOn), "MMMM do, yyyy")
+    
+    const formattedDate = formatMMMMdoYYYY(post.publishedOn);
     
     return (
         <Link href={`/posts/${post.id}`} >
