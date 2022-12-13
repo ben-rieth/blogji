@@ -21,7 +21,7 @@ const NavBar = () => {
             <div className="flex items-center gap-2">
                 <RiMenuFill 
                     onClick={() => setDrawerOpen(true)}
-                    className="w-10 h-10 dark:fill-slate-100" 
+                    className="w-10 h-10 dark:fill-slate-100 cursor-pointer" 
                     data-testid="menu-icon"
                 />
                 <p className="text-4xl dark:text-slate-100">Benji&apos;s Blog</p>
