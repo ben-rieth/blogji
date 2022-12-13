@@ -13,7 +13,8 @@ const PostThumbnail: FC<PostThumbnailProps> = ({ filename, alt }) => {
                 src={`/thumbnails/${filename}`} 
                 alt={alt} 
                 className="object-cover rounded-lg group-hover:ring-4 group-hover:ring-sky-500"
-                fill />
+                fill
+                priority />
         </div>
     )
 }

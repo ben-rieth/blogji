@@ -7,11 +7,14 @@
 
 import { env } from './src/env/server.mjs';
 
-const ContentSecurityPolicy = `
+let ContentSecurityPolicy = `
   default-src 'self';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'self';
+  style-src 'unsafe-inline' 'self';
+  font-src data: 'self';
+  ${env.NODE_ENV !== 'production' ? "script-src 'unsafe-eval' 'self';" : ""}
 `;
 
 /** @type {import("next").NextConfig} */
@@ -23,9 +26,9 @@ const config = {
     defaultLocale: "en",
   },
   async headers() {
-    if (env.NODE_ENV !== 'production') {
-      return [];
-    }
+    // if (env.NODE_ENV !== 'production') {
+    //   return [];
+    // }
     
     return [
       {
