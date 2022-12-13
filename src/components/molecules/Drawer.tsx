@@ -1,9 +1,10 @@
-import { type FC } from "react";
+import { type RefObject, useState, type FC } from "react";
 import classNames from "classnames";
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import Link from "next/link";
 import { CATEGORIES } from "../../constants/categories";
 import dynamic from "next/dynamic";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const DarkModeSwitch = dynamic(
     () => import('../atoms/DarkModeSwitch')
@@ -33,11 +34,27 @@ type DrawerAccordionProps = {
 
 const DrawerAccordion:FC<DrawerAccordionProps> = ({ title, children }) => {
     
+    const [open, setOpen] = useState<boolean>(true);
+    const [parent] = useAutoAnimate();
+
     return (
         <li>
-            <p>{title}</p>
-            <ul className="ml-10">
-                {children}
+            <div 
+                className="flex justify-between cursor-pointer"
+                onClick={() => setOpen(!open)}
+            >
+                <p>{title}</p>
+                {open ? (
+                    <AiOutlineMinus />
+                ) : (
+                    <AiOutlinePlus />
+                )}
+            </div>
+            <ul 
+                className="ml-10"
+                ref={parent as RefObject<HTMLUListElement>}
+            >
+                {open && children}
             </ul>
         </li>
     );
@@ -75,7 +92,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                 className={closeClasses}
                 onClick={handleClose}
             />
-            <ul className="mt-20 ml-10 text-4xl">
+            <ul className="mt-20 ml-10 text-4xl w-64">
                 <DrawerLink title="Home" href="/" />
                 <DrawerLink title="Latest Posts" href="/" />
                 <DrawerAccordion title="Categories">
