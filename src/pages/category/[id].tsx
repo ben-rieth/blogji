@@ -21,7 +21,10 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
     const category = CATEGORIES.find((category) => category.id === id)!;
 
     return (
-        <Layout title={id as string}>
+        <Layout 
+            title={id as string}
+            description={category.sub}
+        >
             <Hero main={category.main} sub={category.sub} />
             <PostGrid posts={posts} title="Recent Posts"/>
             <WIP />

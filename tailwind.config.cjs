@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-roboto)', ...fontFamily.sans],
+        handwriting: ['var(--font-caveat)', ...fontFamily.sans],
       },
       screens: {
         '3xl': '1920px',
