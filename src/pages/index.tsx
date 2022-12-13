@@ -12,7 +12,10 @@ type HomePageProps = {
 
 const Home: NextPage<HomePageProps> = ({ posts }) => {
   return (
-    <Layout title="Blogji">
+    <Layout 
+      title="Blogji" 
+      description="Home of Benji's Blog. Come explore my latest thoughts in programming, psychology, and more."
+    >
         <Hero />
         <PostGrid posts={posts} title="Recent Posts"/>
         <WIP />

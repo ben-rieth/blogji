@@ -15,7 +15,10 @@ type PostProps = {
 const Post: FC<PostProps> = ({ frontmatter, code}) => {
 
     return (
-        <Layout title={frontmatter.title}>
+        <Layout 
+            title={frontmatter.title}
+            description={frontmatter.abstract}
+        >
             <PostHeader 
                 title={frontmatter.title}
                 category={frontmatter.category}
