@@ -14,7 +14,14 @@ const PostThumbnail: FC<PostThumbnailProps> = ({ filename, alt }) => {
                 alt={alt} 
                 className="object-cover rounded-lg group-hover:ring-4 group-hover:ring-sky-500"
                 fill
-                priority />
+                priority
+                sizes="
+                    calc(100vw - 40px),
+                    (min-width: 640px) calc(50vw - 80px),
+                    (min-width: 1024px) calc(33vw - 120px),
+                    (min-width: 1920px) calc(25vw - 160px),
+                " 
+            />
         </div>
     )
 }
