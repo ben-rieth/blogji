@@ -5,6 +5,8 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
+import { env } from './src/env/server.mjs';
+
 const ContentSecurityPolicy = `
   default-src 'self';
   base-uri 'self';
@@ -21,6 +23,10 @@ const config = {
     defaultLocale: "en",
   },
   async headers() {
+    if (env.NODE_ENV !== 'production') {
+      return [];
+    }
+    
     return [
       {
         source: '/:path*',
