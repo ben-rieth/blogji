@@ -7,7 +7,6 @@ import Link from 'next/link';
 import NavItem from '../atoms/NavItem';
 import NavItemWithDropdown from '../atoms/NavItemWithDropdown';
 import { CATEGORIES } from '../../constants/categories';
-import Category from '../../pages/category/[id]';
 
 const DarkModeSwitch = dynamic(
     () => import('../atoms/DarkModeSwitch')
