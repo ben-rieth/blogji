@@ -3,6 +3,7 @@ import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import type { PostFrontMatter } from '../types/Posts';
 import readingTime from 'reading-time';
+import { CATEGORIES } from '../constants/categories';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -49,7 +50,7 @@ const getAllPostFrontmatter = async () => {
 }
 
 export const getAllCategoryIds = () => {
-    const categories = ['web-dev'];
+    const categories = CATEGORIES.map((category) => category.id);
 
     return categories.map((category) => {
         return {

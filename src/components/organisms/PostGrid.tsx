@@ -1,5 +1,6 @@
 import { type FC } from "react";
 import { type PostFrontMatter } from "../../types/Posts";
+import WIP from "../atoms/WIP";
 import PostCover from "../molecules/PostCover";
 
 type PostGridProps = {
@@ -16,6 +17,9 @@ const PostGrid:FC<PostGridProps> = ({ posts, title }) => {
                     <PostCover key={post.id} post={post}/>
                 ))}
             </div>
+            {posts.length === 0 && (
+                <WIP />
+            )}
         </div>
         
     )
