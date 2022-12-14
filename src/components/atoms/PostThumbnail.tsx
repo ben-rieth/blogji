@@ -12,7 +12,7 @@ const PostThumbnail: FC<PostThumbnailProps> = ({ filename, alt }) => {
             <Image 
                 src={`/thumbnails/${filename}`} 
                 alt={alt} 
-                className="object-cover rounded-lg group-hover:ring-4 group-hover:ring-sky-500"
+                className="object-cover rounded-lg"
                 fill
                 priority
                 sizes="
