@@ -35,7 +35,7 @@ const NavBar = () => {
             
             <div className="flex items-center gap-4">
                 <Link href="/">
-                    <p className="text-4xl font-bold text-slate-800 dark:text-white font-handwriting">Benji Riethmeier</p>
+                    <p className="text-4xl font-bold text-rose-500 font-handwriting">Benji Riethmeier</p>
                 </Link>
             </div>
             <div className="md:hidden flex justify-center items-center gap-4">
