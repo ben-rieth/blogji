@@ -4,6 +4,10 @@ import dynamic from 'next/dynamic';
 import Drawer from './Drawer';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import NavItem from '../atoms/NavItem';
+import NavItemWithDropdown from '../atoms/NavItemWithDropdown';
+import { CATEGORIES } from '../../constants/categories';
+import Category from '../../pages/category/[id]';
 
 const DarkModeSwitch = dynamic(
     () => import('../atoms/DarkModeSwitch')
@@ -45,6 +49,16 @@ const NavBar = () => {
                 />
                 {/* <BsSearch className="w-8 h-8 dark:fill-slate-100"data-testid="search-icon"/> */}
             </div>
+            <ul className="hidden md:flex justify-between items-center gap-8">
+                <NavItem title="Latest Posts" href="/" />
+                <NavItemWithDropdown 
+                    title="Categories" 
+                    items={CATEGORIES.map((category) => (
+                        { title: category.main, href: `/category/${category.id}`}
+                    ))}
+                />
+                <li><DarkModeSwitch /></li>
+            </ul>
         </nav>
     );
 
