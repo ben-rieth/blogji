@@ -27,7 +27,6 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
         >
             <Hero main={category.main} sub={category.sub} />
             <PostGrid posts={posts} title="Recent Posts"/>
-            <WIP />
         </Layout>
     )
 }

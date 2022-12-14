@@ -18,7 +18,6 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
     >
         <Hero main="Benji's Blog" sub="A collection of my latest thoughts"/>
         <PostGrid posts={posts} title="Recent Posts"/>
-        <WIP />
     </Layout>
   );
 };
