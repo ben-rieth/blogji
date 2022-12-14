@@ -1,4 +1,4 @@
-import { type RefObject, useState, type FC } from "react";
+import { type RefObject, useState, type FC, type LiHTMLAttributes } from "react";
 import classNames from "classnames";
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import Link from "next/link";
@@ -12,14 +12,15 @@ const DarkModeSwitch = dynamic(
     { ssr: false }
 );
 
-type DrawerLinkProps = {
+interface DrawerLinkProps extends LiHTMLAttributes<HTMLUListElement> {
     title: string;
     href: string;
+    onClick: () => void;
 }
 
-const DrawerLink: FC<DrawerLinkProps> = ({ title, href }) => {
+const DrawerLink: FC<DrawerLinkProps> = ({ title, href, onClick }) => {
     return (
-        <li className="my-5">
+        <li className="my-5" onClick={onClick}>
             <Link href={href}>
                 {title}
             </Link>
@@ -84,7 +85,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
         {
             "hidden": !open
         },
-    )
+    );
 
     return (
         <aside className={drawerClasses}>
@@ -93,19 +94,20 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                 onClick={handleClose}
             />
             <ul className="mt-20 ml-14 text-5xl w-64 font-handwriting">
-                <DrawerLink title="Home" href="/" />
-                <DrawerLink title="Latest Posts" href="/" />
+                <DrawerLink title="Home" href="/" onClick={handleClose}/>
+                <DrawerLink title="Latest Posts" href="/" onClick={handleClose}/>
                 <DrawerAccordion title="Categories">
                     {CATEGORIES.map((category) => (
                         <DrawerLink 
                             key={category.id} 
                             title={category.main} 
                             href={`/category/${category.id}`}
+                            onClick={handleClose}
                         />
                     ))}
                 </DrawerAccordion>
             </ul>
-            <div className="md:hidden ml-14 mt-40">
+            <div className="md:hidden ml-14 mt-40 p-5 w-fit">
                 <DarkModeSwitch />
             </div>
         </aside>
