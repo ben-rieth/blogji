@@ -9,7 +9,7 @@ type PostHeaderProps = {
 
 const PostHeader:FC<PostHeaderProps> = ({ title, category }) => {
     return (
-        <header className="h-80 dark:bg-slate-700 bg-slate-300 pt-40">
+        <header className="dark:bg-slate-700 bg-slate-300 pt-40 pb-5">
             <div className="mx-auto max-w-screen-lg px-10">
                 <Breadcrumbs>
                     <BreadcrumbsLink title="Home" href="/"/>
