@@ -3,14 +3,7 @@ import classNames from "classnames";
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import Link from "next/link";
 import { CATEGORIES } from "../../constants/categories";
-import dynamic from "next/dynamic";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-
-const DarkModeSwitch = dynamic(
-    () => import('../atoms/DarkModeSwitch')
-        .then((mod) => mod.default),
-    { ssr: false }
-);
 
 interface DrawerLinkProps extends LiHTMLAttributes<HTMLUListElement> {
     title: string;
@@ -107,9 +100,6 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                     ))}
                 </DrawerAccordion>
             </ul>
-            <div className="md:hidden ml-14 mt-40 p-5 w-fit">
-                <DarkModeSwitch />
-            </div>
         </aside>
     )
 };
