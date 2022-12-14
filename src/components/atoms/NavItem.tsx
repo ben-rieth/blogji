@@ -8,7 +8,7 @@ type NavItemProps = {
 
 const NavItem:FC<NavItemProps> = ({ title, href }) => {
     return (
-        <li className="text-black dark:text-white font-handwriting text-2xl">
+        <li className="text-black dark:text-white font-handwriting text-2xl font-semibold">
             <Link href={href}>{title}</Link>
         </li>
     );

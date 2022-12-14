@@ -20,7 +20,7 @@ const NavItemWithDropdown : FC<NavItemWithDropdownProps> = ({ title, items }) =>
     useDetectOutsideClick(dropdownRef, () => setDropdownOpen(false));
 
     const itemClasses = classNames(
-        "text-black dark:text-white font-handwriting text-2xl",
+        "text-black dark:text-white font-handwriting text-2xl font-semibold",
         "relative"
     );
     
@@ -43,7 +43,7 @@ const NavItemWithDropdown : FC<NavItemWithDropdownProps> = ({ title, items }) =>
                         <Link 
                             href={item.href} 
                             key={`${title}-${index}`}
-                            className="hover:text-cyan-500"
+                            className="hover:text-cyan-500 font-normal"
                         >
                                 {item.title}
                         </Link>
