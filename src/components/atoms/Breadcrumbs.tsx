@@ -4,21 +4,22 @@ import { type FC } from "react";
 type BreadcrumbLinkProps = {
     title: string;
     href?: string | undefined;
+    last?: boolean;
 }
 
-const BreadcrumbsLink:FC<BreadcrumbLinkProps> = ({ title, href }) => {
+const BreadcrumbsLink:FC<BreadcrumbLinkProps> = ({ title, href, last }) => {
     return (
         <li className="dark:text-slate-400 text-slate-600 text-xl">
             {href ? (
-                <>
+                <p>
                     <Link 
                         href={href} 
                         className="hover:underline"
                     >
                         {title}
                     </Link>
-                    &nbsp;&nbsp;&gt;&nbsp;&nbsp;
-                </>
+                    {!last && <span>&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span>}
+                </p>
             ) : (
                 <p>{title}</p>
             )}

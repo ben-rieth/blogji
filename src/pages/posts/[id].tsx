@@ -1,10 +1,11 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { getAllPostIds, getPostDataMDX } from "../../utils/posts";
-import type { FC} from 'react';
+import { FC, useMemo} from 'react';
 import type { PostFrontMatter } from "../../types/Posts";
 import Layout from "../../components/layout";
 import PostHeader from "../../components/molecules/PostHeader";
 import PostArticle from "../../components/molecules/PostArticle";
+import { CATEGORIES } from "../../constants/categories";
 
 type PostProps = {
     id: string;
@@ -14,6 +15,11 @@ type PostProps = {
 
 const Post: FC<PostProps> = ({ frontmatter, code}) => {
 
+    const category = useMemo(
+        () => CATEGORIES.find((cat) => cat.id === frontmatter.category), 
+        [frontmatter.category]
+    );
+
     return (
         <Layout 
             title={frontmatter.title}
@@ -21,7 +27,7 @@ const Post: FC<PostProps> = ({ frontmatter, code}) => {
         >
             <PostHeader 
                 title={frontmatter.title}
-                category={frontmatter.category}
+                category={category ? category : { id: 'misc', main: "Misc", sub: ""}}
             />
             <PostArticle articleCode={code} />
         </Layout>

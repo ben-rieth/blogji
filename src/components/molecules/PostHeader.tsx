@@ -1,9 +1,10 @@
 import { type FC } from "react";
+import { type Category } from "../../types/Posts";
 import { Breadcrumbs, BreadcrumbsLink } from "../atoms/Breadcrumbs";
 
 type PostHeaderProps = {
     title: string;
-    category: string;
+    category: Category;
 }
 
 const PostHeader:FC<PostHeaderProps> = ({ title, category }) => {
@@ -12,7 +13,7 @@ const PostHeader:FC<PostHeaderProps> = ({ title, category }) => {
             <div className="mx-auto max-w-screen-lg px-10">
                 <Breadcrumbs>
                     <BreadcrumbsLink title="Home" href="/"/>
-                    <BreadcrumbsLink title={category} />
+                    <BreadcrumbsLink title={category.main} href={`/category/${category.id}`} last />
                 </Breadcrumbs>
                 <h1 className="text-slate-800 dark:text-white text-3xl sm:text-4xl font-semibold mt-3">{title}</h1>
             </div>

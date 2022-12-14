@@ -9,3 +9,9 @@ export type PostFrontMatter = {
     coverImageAlt: string;
     readingTime: number | undefined;
 }
+
+export type Category = {
+    id: string;
+    main: string;
+    sub: string;
+}
