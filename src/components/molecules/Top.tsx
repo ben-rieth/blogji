@@ -18,7 +18,7 @@ const Top = () => {
             </div>
             
             <div className="flex flex-col gap-6">
-                <p className="text-3xl text-slate-100 font-handwriting">
+                <p className="text-3xl dark:text-slate-100 :text-slate-800 font-handwriting">
                     A collection of my latest thoughts on different subjects
                 </p>
                 <SearchBox />
