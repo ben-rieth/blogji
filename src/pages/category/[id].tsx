@@ -1,6 +1,5 @@
 import { type GetStaticProps, type GetStaticPaths, type NextPage } from "next"
 import { useRouter } from "next/router";
-import WIP from "../../components/atoms/WIP";
 import Layout from "../../components/layout";
 import Hero from "../../components/molecules/Hero";
 import PostGrid from "../../components/organisms/PostGrid";

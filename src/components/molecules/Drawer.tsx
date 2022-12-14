@@ -51,7 +51,7 @@ const DrawerAccordion:FC<DrawerAccordionProps> = ({ title, children }) => {
                 )}
             </div>
             <ul 
-                className="ml-10"
+                className="ml-14"
                 ref={parent as RefObject<HTMLUListElement>}
             >
                 {open && children}
@@ -92,7 +92,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                 className={closeClasses}
                 onClick={handleClose}
             />
-            <ul className="mt-20 ml-10 text-4xl w-64">
+            <ul className="mt-20 ml-14 text-5xl w-64 font-handwriting">
                 <DrawerLink title="Home" href="/" />
                 <DrawerLink title="Latest Posts" href="/" />
                 <DrawerAccordion title="Categories">
@@ -105,7 +105,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                     ))}
                 </DrawerAccordion>
             </ul>
-            <div className="md:hidden absolute bottom-48 ml-10">
+            <div className="md:hidden ml-14 mt-40">
                 <DarkModeSwitch />
             </div>
         </aside>

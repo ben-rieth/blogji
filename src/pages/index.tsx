@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
 import Hero from "../components/molecules/Hero";
-import WIP from "../components/atoms/WIP";
 import { getSortedPostsData } from "./../utils/posts";
 import type { PostFrontMatter } from "../types/Posts";
 import PostGrid from "../components/organisms/PostGrid";
