@@ -23,7 +23,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
                     filename={post.coverImage} 
                     alt={post.coverImageAlt} 
                 />
-                <p className="text-slate-400 mt-2 2xl:text-xl">
+                <p className="text-slate-400 mt-2 text-sm md:text-base 2xl:text-xl">
                     {formattedDate}&nbsp;&nbsp;•&nbsp;&nbsp;{post.readingTime} {minuteOrMinutes}
                 </p>
                 <h3 className="font-semibold text-xl 2xl:text-3xl my-1 group-hover:text-rose-500 leading-snug sm:h-24 2xl:h-32 text-black dark:text-white">

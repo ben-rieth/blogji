@@ -16,7 +16,7 @@ const Home: NextPage<HomePageProps> = ({ posts }) => {
       description="Home of Benji's Blog. Come explore my latest thoughts in programming, psychology, and more."
     >
         <Top />
-        <PostGrid posts={posts} title="Recent Posts"/>
+        <PostGrid posts={posts} />
     </Layout>
   );
 };
