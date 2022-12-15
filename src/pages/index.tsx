@@ -18,7 +18,6 @@ const Home: NextPage<HomePageProps> = ({ initialPosts }) => {
 
   const [posts, setPosts] = useAtom(postsAtom);
   
-
   useEffect(() => {
     setPosts(initialPosts);
   }, [initialPosts, setPosts])
