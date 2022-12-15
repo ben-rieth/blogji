@@ -27,7 +27,6 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  productionBrowserSourceMaps: true,
   async headers() {
     return [
       {

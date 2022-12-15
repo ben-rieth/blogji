@@ -13,7 +13,7 @@ type PostCoverProps = {
 const PostCover: FC<PostCoverProps> = ({ post }) => {
 
     const formattedDate = formatMMMMdoYYYY(post.publishedOn);
-    
+
     const minuteOrMinutes = post.readingTime === 1 ? "minute" : "minutes";
 
     return (
