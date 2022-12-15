@@ -5,8 +5,6 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
-import { env } from './src/env/server.mjs';
-
 let ContentSecurityPolicy = `
   default-src 'none';
   base-uri 'self';
