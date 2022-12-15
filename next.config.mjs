@@ -16,6 +16,7 @@ let ContentSecurityPolicy = `
   img-src 'self';
   connect-src ws: 'self';
   script-src 'unsafe-eval' 'self';
+  prefetch-src 'self';
 `;
 
 /** @type {import("next").NextConfig} */

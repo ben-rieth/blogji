@@ -31,7 +31,10 @@ const NavBar = () => {
     }, [drawerOpen])
 
     return (
-        <nav className="bg-neutral-200 dark:bg-slate-700 shadow-md flex justify-between w-full py-6 px-4">
+        <nav 
+            suppressHydrationWarning
+            className="bg-neutral-200 dark:bg-slate-700 shadow-md flex justify-between w-full py-6 px-4"
+        >
             <Drawer open={drawerOpen} handleClose={() => setDrawerOpen(false)}/>
             
             <div className="flex items-center gap-4">
