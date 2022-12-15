@@ -5,16 +5,17 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
-import { env } from './src/env/server.mjs';
-
 let ContentSecurityPolicy = `
-  default-src 'self';
+  default-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'self';
   style-src 'unsafe-inline' 'self';
   font-src data: 'self';
-  ${env.NODE_ENV !== 'production' ? "script-src 'unsafe-eval' 'self';" : ""}
+  object-src 'none';
+  img-src 'self';
+  connect-src ws: 'self';
+  script-src 'unsafe-eval' 'self';
 `;
 
 /** @type {import("next").NextConfig} */
@@ -26,10 +27,6 @@ const config = {
     defaultLocale: "en",
   },
   async headers() {
-    // if (env.NODE_ENV !== 'production') {
-    //   return [];
-    // }
-    
     return [
       {
         source: '/:path*',

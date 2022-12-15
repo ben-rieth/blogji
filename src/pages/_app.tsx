@@ -4,7 +4,7 @@ import { Roboto_Flex, Caveat } from '@next/font/google';
 import "../styles/globals.css";
 
 const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto'});
-const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat'});
+const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   
