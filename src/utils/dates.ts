@@ -1,12 +1,8 @@
-import { format } from "date-fns";
+import Moment from 'moment';
 
-export const formatMMMMdoYYYY = (date: string | Date) => {
-    
-    let prepare = date;
+export const formatMMMMdoYYYY = (date: string) => {
 
-    if (typeof prepare === 'string' ) {
-        prepare = new Date(prepare);
-    }
+    const moment = Moment(date);
 
-    return format(prepare, "MMMM do, yyyy")
+    return moment.format("MMMM Do, YYYY");
 }
