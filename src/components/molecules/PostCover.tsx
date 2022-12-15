@@ -17,7 +17,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
 
     return (
         <Link href={`/posts/${post.id}`} >
-            <article className="group dark:text-white text-black m-5 bg-slate-700 p-5 rounded-lg">
+            <article className="group dark:text-white text-black m-5 bg-slate-700 p-5 rounded-lg hover:scale-105 transform scale-100 transition-transform duration-250 ease-in-out">
                 <PostThumbnail 
                     filename={post.coverImage} 
                     alt={post.coverImageAlt} 
