@@ -1,11 +1,11 @@
 import { type GetStaticProps, type GetStaticPaths, type NextPage } from "next"
 import { useRouter } from "next/router";
 import Layout from "../../components/layout";
-import Hero from "../../components/structure/Hero";
 import PostGrid from "../../components/posts/PostGrid";
 import { CATEGORIES } from "../../constants/categories";
 import { type PostFrontMatter } from "../../types/Posts";
 import { getAllCategoryIds, getSortedPostsDataFromCategory } from "../../utils/posts"
+import CategoryHeader from "../../components/categories/CategoryHeader";
 
 type CategoryProps = {
     posts: (PostFrontMatter & { id: string })[];
@@ -24,8 +24,11 @@ const Category: NextPage<CategoryProps> = ({ posts }) => {
             title={id as string}
             description={category.sub}
         >
-            <Hero main={category.main} sub={category.sub} />
-            <PostGrid posts={posts} title="Recent Posts"/>
+            <CategoryHeader 
+                name={category.main} 
+                numPosts={posts.length} 
+            />
+            <PostGrid posts={posts} />
         </Layout>
     )
 }

@@ -45,7 +45,7 @@ const DrawerAccordion:FC<DrawerAccordionProps> = ({ title, children }) => {
                 )}
             </div>
             <ul 
-                className="ml-14"
+                className="ml-8"
                 ref={parent as RefObject<HTMLUListElement>}
             >
                 {open && children}
