@@ -14,7 +14,6 @@ const PostThumbnail: FC<PostThumbnailProps> = ({ filename, alt }) => {
                 alt={alt} 
                 className="object-cover rounded-lg"
                 fill
-                priority
                 sizes="
                     calc(100vw - 40px),
                     (min-width: 640px) calc(50vw - 80px),
