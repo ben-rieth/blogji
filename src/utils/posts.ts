@@ -3,7 +3,7 @@ import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import type { PostFrontMatter } from '../types/Posts';
 import readingTime from 'reading-time';
-import { CATEGORIES } from '../constants/categories';
+import { CATEGORIES } from './constants/categories';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 

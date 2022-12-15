@@ -5,7 +5,7 @@ import type { PostFrontMatter } from "../../types/Posts";
 import Layout from "../../components/layout";
 import PostHeader from "../../components/posts/PostHeader";
 import PostArticle from "../../components/posts/PostArticle";
-import { CATEGORIES } from "../../constants/categories";
+import { CATEGORIES } from "../../utils/constants/categories";
 
 type PostProps = {
     id: string;
