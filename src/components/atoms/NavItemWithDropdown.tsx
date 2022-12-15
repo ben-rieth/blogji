@@ -35,13 +35,13 @@ const NavItemWithDropdown : FC<NavItemWithDropdownProps> = ({ title, items }) =>
             </div>
             {dropdownOpen && (
                 <div 
-                    className="bg-white text-black absolute -left-14 top-10 p-5 grid grid-cols-2 w-56 rounded"
+                    className="bg-white text-black absolute -left-24 top-10 p-5 grid grid-cols-2 w-64 rounded gap-x-8"
                 >
                     {items.map((item, index) => (
                         <Link 
                             href={item.href} 
                             key={`${title}-${index}`}
-                            className="hover:text-cyan-500 font-normal"
+                            className="hover:text-rose-500 hover:font-bold font-normal"
                         >
                                 {item.title}
                         </Link>

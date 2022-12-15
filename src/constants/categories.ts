@@ -1,8 +1,8 @@
 export const CATEGORIES = [
     {
-        id: 'web-dev',
-        main: 'Web Dev',
-        sub: 'My latest explorations in web dev'
+        id: 'cs',
+        main: 'Programming',
+        sub: 'My latest explorations in computer science, development, and coding'
     },
     {
         id: "psych",
