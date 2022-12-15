@@ -4,6 +4,7 @@ import type { PostFrontMatter } from "../../types/Posts";
 import { formatMMMMdoYYYY } from "../../utils/dates";
 import PostThumbnail from "../atoms/PostThumbnail";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { postLinkFromId } from "../../utils/links";
 
 type PostCoverProps = {
     post: PostFrontMatter & { id: string};
@@ -16,7 +17,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
     const minuteOrMinutes = post.readingTime === 1 ? "minute" : "minutes";
 
     return (
-        <Link href={`/posts/${post.id}`} >
+        <Link href={postLinkFromId(post.id)} >
             <article className="group dark:text-white text-black m-5 bg-slate-700 p-5 rounded-lg hover:scale-105 transform scale-100 transition-transform duration-250 ease-in-out">
                 <PostThumbnail 
                     filename={post.coverImage} 

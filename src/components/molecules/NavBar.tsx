@@ -6,6 +6,7 @@ import Link from 'next/link';
 import NavItem from '../atoms/NavItem';
 import NavItemWithDropdown from '../atoms/NavItemWithDropdown';
 import { CATEGORIES } from '../../constants/categories';
+import { BLOG_HOME, categoryLinkFromId, LATEST_POSTS } from '../../utils/links';
 
 const DarkModeSwitch = dynamic(
     () => import('../atoms/DarkModeSwitch')
@@ -34,7 +35,7 @@ const NavBar = () => {
             <Drawer open={drawerOpen} handleClose={() => setDrawerOpen(false)}/>
             
             <div className="flex items-center gap-4">
-                <Link href="/">
+                <Link href={BLOG_HOME}>
                     <p className="text-4xl font-bold text-rose-500 font-handwriting">Benji Riethmeier</p>
                 </Link>
             </div>
@@ -47,11 +48,11 @@ const NavBar = () => {
                 />
             </div>
             <ul className="hidden md:flex justify-between items-center gap-8">
-                <NavItem title="Latest Posts" href="/" />
+                <NavItem title="Latest Posts" href={LATEST_POSTS} />
                 <NavItemWithDropdown 
                     title="Categories" 
                     items={CATEGORIES.map((category) => (
-                        { title: category.main, href: `/category/${category.id}`}
+                        { title: category.main, href: categoryLinkFromId(category.id)}
                     ))}
                 />
                 <li><DarkModeSwitch /></li>
