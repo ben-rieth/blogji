@@ -29,7 +29,7 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  productionBrowserSourceMaps: env.NODE_ENV === 'preview' ? true : false,
+  productionBrowserSourceMaps: true,
   async headers() {
     return [
       {
