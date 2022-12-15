@@ -73,7 +73,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
     );
 
     const closeClasses = classNames(
-        "fixed top-2 right-2 cursor-pointer fill-black dark:fill-white",
+        "fixed top-4 right-4 cursor-pointer fill-black dark:fill-white",
         "h-12 w-12 ml-2",
         {
             "hidden": !open
