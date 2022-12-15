@@ -7,7 +7,7 @@ type CategoryHeaderProps = {
 
 const CategoryHeader:FC<CategoryHeaderProps> = ({ name, numPosts }) => {
     return (
-        <header className="flex justify-between mx-5 mt-5 items-center">
+        <header className="flex justify-between mx-10 my-5 items-center">
             <h2 className="dark:text-neutral-100 text-neutral-900 text-4xl font-semibold font-handwriting">
                 {name}
             </h2>
