@@ -1,10 +1,9 @@
 import type { GetStaticProps, NextPage } from "next";
-import Hero from "../components/molecules/Hero";
 import { getSortedPostsData } from "./../utils/posts";
 import type { PostFrontMatter } from "../types/Posts";
-import PostGrid from "../components/organisms/PostGrid";
+import PostGrid from "../components/posts/PostGrid";
 import Layout from "../components/layout";
-import Top from "../components/molecules/Top";
+import Top from "../components/structure/Top";
 
 type HomePageProps = {
   posts: (PostFrontMatter & { id: string })[];

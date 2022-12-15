@@ -1,10 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { getAllPostIds, getPostDataMDX } from "../../utils/posts";
-import { FC, useMemo} from 'react';
+import { type FC, useMemo } from 'react';
 import type { PostFrontMatter } from "../../types/Posts";
 import Layout from "../../components/layout";
-import PostHeader from "../../components/molecules/PostHeader";
-import PostArticle from "../../components/molecules/PostArticle";
+import PostHeader from "../../components/posts/PostHeader";
+import PostArticle from "../../components/posts/PostArticle";
 import { CATEGORIES } from "../../constants/categories";
 
 type PostProps = {

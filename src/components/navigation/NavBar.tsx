@@ -3,13 +3,13 @@ import dynamic from 'next/dynamic';
 import Drawer from './Drawer';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import NavItem from '../atoms/NavItem';
-import NavItemWithDropdown from '../atoms/NavItemWithDropdown';
+import NavItem from '../navigation/NavItem';
+import NavItemWithDropdown from './NavItemWithDropdown';
 import { CATEGORIES } from '../../constants/categories';
 import { BLOG_HOME, categoryLinkFromId, LATEST_POSTS } from '../../utils/links';
 
 const DarkModeSwitch = dynamic(
-    () => import('../atoms/DarkModeSwitch')
+    () => import('../general/DarkModeSwitch')
         .then((mod) => mod.default),
     { ssr: false }
 );

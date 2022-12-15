@@ -1,8 +1,8 @@
 import { type GetStaticProps, type GetStaticPaths, type NextPage } from "next"
 import { useRouter } from "next/router";
 import Layout from "../../components/layout";
-import Hero from "../../components/molecules/Hero";
-import PostGrid from "../../components/organisms/PostGrid";
+import Hero from "../../components/structure/Hero";
+import PostGrid from "../../components/posts/PostGrid";
 import { CATEGORIES } from "../../constants/categories";
 import { type PostFrontMatter } from "../../types/Posts";
 import { getAllCategoryIds, getSortedPostsDataFromCategory } from "../../utils/posts"

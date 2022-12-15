@@ -15,7 +15,7 @@ Object.defineProperty(window, 'matchMedia', {
     })),
 });
 
-import NavBar from "../../../components/molecules/NavBar";
+import NavBar from "../../../components/navigation/NavBar";
 
 describe('NavBar Component', () => {
     it('renders the name of the blog, a menu icon, a search icon, and the dark mode icon', () => {

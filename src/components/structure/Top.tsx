@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SearchBox from "../atoms/SearchBox";
+import SearchBox from "../general/SearchBox";
 
 const Top = () => {
     return (

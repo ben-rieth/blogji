@@ -1,4 +1,4 @@
-import Hero from './../../../components/molecules/Hero';
+import Hero from '../../../components/structure/Hero';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -16,7 +16,7 @@ Object.defineProperty(window, "matchMedia", {
     }))
 });
 
-import DarkModeSwitch from '../../../components/atoms/DarkModeSwitch';
+import DarkModeSwitch from '../../../components/general/DarkModeSwitch';
 
 
 describe('DarkModeSwitch Component', () => {

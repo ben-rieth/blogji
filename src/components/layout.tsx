@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { type FC } from "react";
-import NavBar from "./molecules/NavBar";
+import NavBar from "./navigation/NavBar";
 
 type LayoutProps = {
     children: JSX.Element[];

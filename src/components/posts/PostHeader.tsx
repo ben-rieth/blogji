@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import { type Category } from "../../types/Posts";
 import { BLOG_HOME, categoryLinkFromId } from "../../utils/links";
-import { Breadcrumbs, BreadcrumbsLink } from "../atoms/Breadcrumbs";
+import { Breadcrumbs, BreadcrumbsLink } from "../navigation/Breadcrumbs";
 
 type PostHeaderProps = {
     title: string;

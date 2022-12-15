@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import { type PostFrontMatter } from "../../types/Posts";
-import WIP from "../atoms/WIP";
-import PostCover from "../molecules/PostCover";
+import WIP from "../general/WIP";
+import PostCover from "../posts/PostCover";
 
 type PostGridProps = {
     posts: (PostFrontMatter & { id: string })[];

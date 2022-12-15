@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { FC } from "react";
 import type { PostFrontMatter } from "../../types/Posts";
 import { formatMMMMdoYYYY } from "../../utils/dates";
-import PostThumbnail from "../atoms/PostThumbnail";
+import PostThumbnail from "../posts/PostThumbnail";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { postLinkFromId } from "../../utils/links";
 
