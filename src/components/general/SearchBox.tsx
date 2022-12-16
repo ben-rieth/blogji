@@ -6,7 +6,6 @@ import { useQuery } from '@tanstack/react-query';
 import { type PostWithId } from '../../types/Posts';
 import { useAtom } from 'jotai';
 import { postsAtom } from '../../store/posts';
-import { env } from './../../env/client.mjs';
 
 const SearchBox = () => {
 
@@ -18,7 +17,7 @@ const SearchBox = () => {
     useQuery<PostWithId[]>({
         queryKey: ["search-results", debouncedInput],
         queryFn: () => axios.get(
-            `${env.NEXT_PUBLIC_URL}/api/posts/search?query=${debouncedInput}`
+            `/api/posts/search?query=${debouncedInput}`
         ).then((res) => res.data),
         onSettled(data) {
             if (data) setPosts(data);
