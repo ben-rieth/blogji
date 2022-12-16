@@ -10,7 +10,7 @@ import { postsAtom } from '../../store/posts';
 const SearchBox = () => {
 
     const [inputValue, setInputValue] = useState<string>("");
-    const debouncedInput = useDebounce(inputValue);
+    const debouncedInput = useDebounce(inputValue, 150);
 
     const [posts, setPosts] = useAtom(postsAtom);
 
