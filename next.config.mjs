@@ -12,7 +12,7 @@ let ContentSecurityPolicy = `
   frame-ancestors 'self';
   style-src 'unsafe-inline' 'self';
   font-src data: 'self';
-  object-src 'none';
+  object-src data: 'self';
   img-src 'self';
   connect-src ws: 'self';
   script-src 'unsafe-eval' 'self';

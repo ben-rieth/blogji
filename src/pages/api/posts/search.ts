@@ -25,7 +25,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         const posts : PostWithId[] = JSON.parse(await fs.readFile(postCache, 'utf-8'));
 
-        console.log(posts);
         const results = posts.filter((post) => {
             return (
                 post.title.toLowerCase().includes(searchQuery) ||
