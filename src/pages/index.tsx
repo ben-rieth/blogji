@@ -18,7 +18,7 @@ const Home: NextPage<HomePageProps> = ({ initialPosts }) => {
   
   useEffect(() => {
     setPosts(initialPosts);
-  }, [initialPosts, setPosts])
+  }, [initialPosts, setPosts]);
 
   return (
     <Layout 

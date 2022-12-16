@@ -1,4 +1,4 @@
 import { atom } from 'jotai';
-import { type PostFrontMatter } from '../types/Posts';
+import { type PostWithId } from '../types/Posts';
 
-export const postsAtom = atom<(PostFrontMatter & { id: string })[]>([]);
+export const postsAtom = atom<PostWithId[]>([]);

@@ -8,6 +8,8 @@ import { CATEGORIES } from './constants/categories';
 const mainDirectory = process.cwd();
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+export const postCache = path.join(mainDirectory, 'search.json');
+
 const fileNameToId = (fileName: string) : string => {
     return fileName.replace(/\.mdx$/, '');
 }
@@ -16,7 +18,7 @@ const idToFileName = (id: string) : string => {
     return `${id}.mdx`;
 }
 
-const sortByPublishedDate = (posts: (PostFrontMatter & { id: string })[]) => {
+export const sortByPublishedDate = (posts: (PostFrontMatter & { id: string })[]) => {
     return posts.sort((a, b) => {
         if (a.publishedOn < b.publishedOn) {
             return 1;
