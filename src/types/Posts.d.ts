@@ -10,6 +10,8 @@ export type PostFrontMatter = {
     readingTime: number | undefined;
 }
 
+export type PostWithId = PostFrontMatter & { id: string };
+
 export type Category = {
     id: string;
     main: string;

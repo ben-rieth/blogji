@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import NavItem from '../navigation/NavItem';
 import NavItemWithDropdown from './NavItemWithDropdown';
-import { CATEGORIES } from '../../constants/categories';
+import { CATEGORIES } from '../../utils/constants/categories';
 import { BLOG_HOME, categoryLinkFromId, LATEST_POSTS } from '../../utils/links';
 
 const DarkModeSwitch = dynamic(
@@ -31,7 +31,10 @@ const NavBar = () => {
     }, [drawerOpen])
 
     return (
-        <nav className="bg-neutral-200 dark:bg-slate-700 shadow-lg flex justify-between w-full py-6 px-5">
+        <nav 
+            suppressHydrationWarning
+            className="bg-neutral-200 dark:bg-slate-700 shadow-lg flex justify-between w-full py-6 px-5"
+        >
             <Drawer open={drawerOpen} handleClose={() => setDrawerOpen(false)}/>
             
             <div className="flex items-center gap-4">

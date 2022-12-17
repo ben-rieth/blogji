@@ -1,11 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
-import type { PostFrontMatter } from '../types/Posts';
+import type { PostFrontMatter, PostWithId } from '../types/Posts';
 import readingTime from 'reading-time';
-import { CATEGORIES } from '../constants/categories';
+import { CATEGORIES } from './constants/categories';
 
+const mainDirectory = process.cwd();
 const postsDirectory = path.join(process.cwd(), 'posts');
+
+export const postCache = path.join(mainDirectory, 'search.json');
 
 const fileNameToId = (fileName: string) : string => {
     return fileName.replace(/\.mdx$/, '');
@@ -15,7 +18,7 @@ const idToFileName = (id: string) : string => {
     return `${id}.mdx`;
 }
 
-const sortByPublishedDate = (posts: (PostFrontMatter & { id: string })[]) => {
+export const sortByPublishedDate = (posts: (PostFrontMatter & { id: string })[]) => {
     return posts.sort((a, b) => {
         if (a.publishedOn < b.publishedOn) {
             return 1;
@@ -47,6 +50,18 @@ const getAllPostFrontmatter = async () => {
     }));
 
     return allPostsData;
+}
+
+const createSearchIndex = (posts: PostWithId[]) => {
+    const jsonString = JSON.stringify(posts);
+
+    const searchFile = path.join(mainDirectory, 'search.json');
+
+    try {
+        fs.writeFileSync(searchFile, jsonString)
+    } catch (err) {
+        console.log("Cannot write search file");
+    }
 }
 
 export const getAllCategoryIds = () => {
@@ -94,6 +109,8 @@ export const getSortedPostsData = async () => {
     const allPostsData = await getAllPostFrontmatter();
 
     const published = allPostsData.filter((post) => post.isPublished);
+
+    createSearchIndex(published);
 
     return sortByPublishedDate(published);
 }
