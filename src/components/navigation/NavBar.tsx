@@ -43,7 +43,7 @@ const NavBar = () => {
                 <DarkModeSwitch />
                 <RiMenuFill 
                     onClick={() => setDrawerOpen(true)}
-                    className="w-10 h-10 dark:fill-slate-100 cursor-pointer" 
+                    className="w-8 h-8 dark:fill-slate-100 cursor-pointer" 
                     data-testid="menu-icon"
                 />
             </div>

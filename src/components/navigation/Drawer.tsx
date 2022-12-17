@@ -13,7 +13,7 @@ interface DrawerLinkProps extends LiHTMLAttributes<HTMLUListElement> {
 
 const DrawerLink: FC<DrawerLinkProps> = ({ title, href, onClick }) => {
     return (
-        <li className="my-5" onClick={onClick}>
+        <li className="my-5 hover:text-rose-500 hover:underline underline-offset-4" onClick={onClick}>
             <Link href={href}>
                 {title}
             </Link>
@@ -31,17 +31,21 @@ const DrawerAccordion:FC<DrawerAccordionProps> = ({ title, children }) => {
     const [open, setOpen] = useState<boolean>(true);
     const [parent] = useAutoAnimate();
 
+    const iconClass = classNames(
+        "fill-neutral-900 dark:fill-neutral-100 group-hover:fill-rose-500"
+    );
+
     return (
-        <li>
+        <li className="group">
             <div 
-                className="flex justify-between cursor-pointer"
+                className="flex gap-10 items-center cursor-pointer"
                 onClick={() => setOpen(!open)}
             >
-                <p>{title}</p>
+                <p className="group-hover:text-rose-500">{title}</p>
                 {open ? (
-                    <AiOutlineMinus />
+                    <AiOutlineMinus className={iconClass}/>
                 ) : (
-                    <AiOutlinePlus />
+                    <AiOutlinePlus className={iconClass} />
                 )}
             </div>
             <ul 
@@ -65,7 +69,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
         "fixed top-0 left-0 w-full z-30 h-full",
         "transform ease-in-out transition-all duration-500",
         "bg-white/70 dark:bg-slate-800/90 backdrop-blur-md",
-        "text-black dark:text-white",
+        "text-neutral-900 dark:text-neutral-100",
         {
             "translate-x-0" : open,
             "-translate-x-full": !open
@@ -86,7 +90,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
                 className={closeClasses}
                 onClick={handleClose}
             />
-            <ul className="mt-20 ml-14 text-5xl w-64 font-handwriting">
+            <ul className="mt-20 ml-14 text-3xl md:text-5xl w-64 font-handwriting">
                 <DrawerLink title="Home" href="/" onClick={handleClose}/>
                 <DrawerLink title="Latest Posts" href="/" onClick={handleClose}/>
                 <DrawerAccordion title="Categories">
