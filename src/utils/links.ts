@@ -1,3 +1,6 @@
+export const GITHUB_LINK = "https://github.com/ben-rieth";
+export const LINKEDIN_LINK = "https://www.linkedin.com/in/benjamin-riethmeier-4b8949204/";
+
 export const BLOG_HOME = "/";
 export const LATEST_POSTS = "/";
 

@@ -12,13 +12,14 @@ const FooterNavCol:FC<FooterNacColProps> = ({ title, children, grid=false }) => 
     const classes = classNames(
         {
             "grid grid-cols-2 gap-x-3": grid,
-            "": !grid,
+            "flex flex-col": !grid,
         },
-        "text-sm"
+        "text-sm",
+        "gap-1"
     )
     
     return (
-        <div>
+        <div className="flex flex-col gap-2">
             <p className="text-slate-500">{title}</p>
             <ul className={classes}>
                 {children}

@@ -1,5 +1,5 @@
 import { CATEGORIES } from "../../utils/constants/categories";
-import { categoryLinkFromId } from "../../utils/links";
+import { categoryLinkFromId, GITHUB_LINK, LINKEDIN_LINK } from "../../utils/links";
 import Name from "../general/Name";
 import FooterNavCol from "../navigation/FooterNavCol";
 import NavItem from "../navigation/NavItem";
@@ -19,8 +19,8 @@ const Footer = () => {
                     ))}
                 </FooterNavCol>
                 <FooterNavCol title="Me Elsewhere">
-                    <NavItem title="Github" href="/"/>
-                    <NavItem title="Linkedin" href="/" />
+                    <NavItem title="Github" href={GITHUB_LINK}/>
+                    <NavItem title="Linkedin" href={LINKEDIN_LINK} />
                 </FooterNavCol>
             </nav>
             <p className="text-slate-500">2022 Benjamin Riethmeier.</p>
