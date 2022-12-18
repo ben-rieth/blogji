@@ -7,6 +7,7 @@ import NavItem from '../navigation/NavItem';
 import NavItemWithDropdown from './NavItemWithDropdown';
 import { CATEGORIES } from '../../utils/constants/categories';
 import { BLOG_HOME, categoryLinkFromId, LATEST_POSTS } from '../../utils/links';
+import Name from '../general/Name';
 
 const DarkModeSwitch = dynamic(
     () => import('../general/DarkModeSwitch')
@@ -39,7 +40,7 @@ const NavBar = () => {
             
             <div className="flex items-center gap-4">
                 <Link href={BLOG_HOME}>
-                    <p className="text-4xl font-bold text-rose-500 font-handwriting">Benji Riethmeier</p>
+                    <Name />
                 </Link>
             </div>
             <div className="md:hidden flex justify-center items-center gap-4">
@@ -50,7 +51,7 @@ const NavBar = () => {
                     data-testid="menu-icon"
                 />
             </div>
-            <ul className="hidden md:flex justify-between items-center gap-8">
+            <ul className="hidden md:flex justify-between items-center gap-8 font-handwriting text-2xl font-semibold">
                 <NavItem title="Latest Posts" href={LATEST_POSTS} />
                 <NavItemWithDropdown 
                     title="Categories" 
