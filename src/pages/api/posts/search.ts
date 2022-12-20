@@ -29,10 +29,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             const results = posts.filter((post) => {
                 return (
                     post.title.toLowerCase().includes(searchQuery) ||
-                    post.abstract.toLowerCase().includes(searchQuery));
+                    post.abstract.toLowerCase().includes(searchQuery)) ||
+                    post.tags.includes(searchQuery.toLowerCase());
             });
 
-            const sortResults =sortByPublishedDate(results); 
+            const sortResults = sortByPublishedDate(results); 
 
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(sortResults);

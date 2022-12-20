@@ -8,6 +8,7 @@ export type PostFrontMatter = {
     coverImage: string;
     coverImageAlt: string;
     readingTime: number | undefined;
+    tags: string[];
 }
 
 export type PostWithId = PostFrontMatter & { id: string };
