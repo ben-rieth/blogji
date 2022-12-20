@@ -67,7 +67,7 @@ const Drawer:FC<DrawerProps> = ({ open, handleClose }) => {
     
     const drawerClasses = classNames(
         "fixed top-0 left-0 w-full z-30 h-full",
-        "transform ease-in-out transition-all duration-500",
+        "transform ease-in-out transition-transform duration-500",
         "bg-white/70 dark:bg-slate-800/90 backdrop-blur-md",
         "text-neutral-900 dark:text-neutral-100",
         {

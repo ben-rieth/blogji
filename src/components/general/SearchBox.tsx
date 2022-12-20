@@ -36,6 +36,7 @@ const SearchBox = () => {
                     text-neutral-900 
                     dark:text-neutral-200 
                     placeholder:text-neutral-400 
+                    focus-visible:outline-none
                     "
                 placeholder="Search posts"
                 value={inputValue}
