@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "ts-node src/utils/scripts/prebuild.ts",
+    "prebuild": "ts-node --esm src/utils/scripts/prebuild.ts",
     "predev": "ts-node --esm src/utils/scripts/prebuild.ts",
     "build": "next build",
     "dev": "next dev",

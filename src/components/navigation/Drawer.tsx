@@ -2,7 +2,7 @@ import { type RefObject, useState, type FC, type LiHTMLAttributes } from "react"
 import classNames from "classnames";
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import Link from "next/link";
-import { CATEGORIES } from "../../utils/constants/categories";
+import { CATEGORIES } from "../../utils/constants/categories.js";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 interface DrawerLinkProps extends LiHTMLAttributes<HTMLUListElement> {

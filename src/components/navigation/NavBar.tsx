@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import NavItem from '../navigation/NavItem';
 import NavItemWithDropdown from './NavItemWithDropdown';
-import { CATEGORIES } from '../../utils/constants/categories';
+import { CATEGORIES } from '../../utils/constants/categories.js';
 import { BLOG_HOME, categoryLinkFromId, LATEST_POSTS } from '../../utils/links';
 import Name from '../general/Name';
 

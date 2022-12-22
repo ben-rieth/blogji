@@ -1,6 +1,7 @@
 import { Prisma } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as z from "zod";
+import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../utils/db";
 
 const schema = z.object({
@@ -13,26 +14,44 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         let title;
         try {
-
-            const query = schema.parse(req.query);
-            title = query.title;
+            console.log(req.body);
+            const body = schema.parse(req.body);
+            title = body.title;
 
         } catch (err) {
-            res.status(400).json({
+            return res.status(400).json({
                 msg: 'Post title must be included in request.'
             })
         }
 
+        if (env.NODE_ENV === 'development') {
+            try {
+
+                const post = await prisma.post.findUnique({
+                    where: { title }
+                });
+
+                return res.status(200).json({
+                    views: post?.views,
+                });
+
+            } catch (err) {
+                return res.status(500).json({
+                    msg: "Error getting data from database"
+                });
+            }
+        }
+
         try {
-            const updatedCount = await prisma.post.update({
+            const post = await prisma.post.update({
                 where: { title },
                 data: {
-                    views: { increment: 1, }
+                    views: { increment: 1, },
                 }
             });
 
-            res.status(200).json({
-                views: updatedCount,
+            return res.status(200).json({
+                views: post.views,
             })
         } catch (err) {
             if (err instanceof Prisma.PrismaClientKnownRequestError) {
@@ -41,13 +60,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                 })
             }
             
-            res.status(500).json({
+            return res.status(500).json({
                 msg: "Error getting data from database"
             });
         }
     } else {
         res.setHeader('Allow', ['POST'])
-        res.status(405).json({
+        return res.status(405).json({
             msg: 'Method not allowed'
         });
     }

@@ -2,7 +2,7 @@ import { type GetStaticProps, type GetStaticPaths, type NextPage } from "next"
 import { useRouter } from "next/router";
 import Layout from "../../components/layout";
 import PostGrid from "../../components/posts/PostGrid";
-import { CATEGORIES } from "../../utils/constants/categories";
+import { CATEGORIES } from "../../utils/constants/categories.js";
 import { type PostFrontMatter } from "../../types/Posts";
 import { getAllCategoryIds, getSortedPostsDataFromCategory } from "../../utils/posts"
 import CategoryHeader from "../../components/categories/CategoryHeader";

@@ -1,8 +1,9 @@
-import path from "path";
+import type { PostWithId } from "../../types/Posts";
+
+import path from 'path';
 import fs from 'fs';
-import type { PostWithId } from "../../types/Posts.js";
-import { getSortedPostsData, mainDirectory } from "../posts.js";
-import { prisma } from "../db.js";
+import { mainDirectory, getSortedPostsData } from '../posts.js';
+import { prisma } from '../db.js';
 
 const createSearchIndex = (posts: PostWithId[]) => {
     const jsonString = JSON.stringify(posts);

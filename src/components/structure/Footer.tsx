@@ -1,4 +1,4 @@
-import { CATEGORIES } from "../../utils/constants/categories";
+import { CATEGORIES } from "../../utils/constants/categories.js";
 import { categoryLinkFromId, GITHUB_LINK, LINKEDIN_LINK } from "../../utils/links";
 import Name from "../general/Name";
 import FooterNavCol from "../navigation/FooterNavCol";
