@@ -8,6 +8,7 @@ import PostArticle from "../../components/posts/PostArticle";
 import { CATEGORIES } from "../../utils/constants/categories.js";
 import axios, { AxiosError } from "axios";
 import { env } from "../../env/client.mjs";
+import PostFooter from "../../components/posts/PostFooter";
 
 type PostProps = {
     id: string;
@@ -57,7 +58,7 @@ const Post: FC<PostProps> = ({ frontmatter, code}) => {
                 category={category ? category : { id: 'misc', main: "Misc", sub: ""}}
             />
             <PostArticle articleCode={code} />
-            <p className="text-white">{views}</p>
+            <PostFooter date={frontmatter.publishedOn} views={views} />
         </Layout>
     );
 }
