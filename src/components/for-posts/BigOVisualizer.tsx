@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState, type FC } from "react";
+import PickOne from "../../controls/PickOne";
 
 type BigOVisualizerProps = object;
 
@@ -28,7 +29,7 @@ const BigOVisualizer:FC<BigOVisualizerProps> = () => {
                     <p>n = 1000</p>
                 </div>
             </div>
-            
+            <PickOne values={["O(1)", "O(logN)", "O(N)", "O(N*logN)", "O(N^2)", "O(2^N)"]}/>
         </div>
     );
 };
