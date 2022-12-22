@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import { mainDirectory, getSortedPostsData } from '../posts.js';
 import { prisma } from '../db.js';
+import { env } from './../../env/server.mjs';
 
 const createSearchIndex = (posts: PostWithId[]) => {
     const jsonString = JSON.stringify(posts);
@@ -34,7 +35,9 @@ const updatePrisma = async (posts: PostWithId[]) => {
 const allPosts = await getSortedPostsData();
 
 console.log("Prebuild start");
-createSearchIndex(allPosts);
+if (env.NODE_ENV === 'development') {
+    createSearchIndex(allPosts);
+}
 const count = await updatePrisma(allPosts);
 console.log("Prebuild end. Posts added to db: ", count);
 
