@@ -7,11 +7,11 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DB_URL")
 }
 
 model Post {
-  id    String @id
+  title String @id
   views Int @default(0)
   likes Int @default(0)
 }
