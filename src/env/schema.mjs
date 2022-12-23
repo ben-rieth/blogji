@@ -9,6 +9,7 @@ export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "preview"]),
   DB_PASSWORD: z.string(),
   DB_URL: z.string(),
+  NEXTAUTH_SECRET: z.string(),
 });
 
 /**
