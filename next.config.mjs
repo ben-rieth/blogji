@@ -35,7 +35,7 @@ const config = {
       {
         source: '/api/:path*',
         destination: `${env.NEXT_PUBLIC_URL}/api/:path*`
-      }
+      },
     ]
   },
   async headers() {

@@ -30,7 +30,7 @@ const Post: FC<PostProps> = ({ frontmatter, code}) => {
         (async () => {
             try {
                 const response = await axios.post(
-                    `${env.NEXT_PUBLIC_URL}/api/posts/views`, 
+                    `/api/posts/views`, 
                     { 
                         title: frontmatter.title
                     }
