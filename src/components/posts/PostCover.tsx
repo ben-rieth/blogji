@@ -36,7 +36,7 @@ const PostCover: FC<PostCoverProps> = ({ post }) => {
                     <AiOutlineArrowRight 
                         className="fill-rose-500 hidden group-hover:inline h-6 w-6 2xl:h-8 2xl:w-8 animate-bounce"
                     />
-                </button>
+                </button>   
             </article>
         </Link>
     );
