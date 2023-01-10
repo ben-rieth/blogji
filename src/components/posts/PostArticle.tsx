@@ -10,7 +10,7 @@ const PostArticle:FC<PostArticleProps> = ({ articleCode }) => {
     
     return (
         <article 
-            className="text-black dark:text-white px-10 mx-auto my-10 text-lg max-w-screen-lg"
+            className="text-black dark:text-white px-10 mx-auto my-10 text-base max-w-screen-md"
         >
             <Component components={{ 
                 ul: (props) => <ul className="list-disc ml-10" {...props} />
