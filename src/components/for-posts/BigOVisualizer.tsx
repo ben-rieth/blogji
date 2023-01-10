@@ -1,5 +1,5 @@
 import { type ChangeEvent, useState, type FC } from "react";
-import PickOne from "../../controls/PickOne";
+import PickOne from "../controls/PickOne";
 
 type BigOVisualizerProps = object;
 
