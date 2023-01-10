@@ -21,7 +21,7 @@ const Layout:FC<LayoutProps> = ({ children, title, description }) => {
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
                 <link rel="manifest" href="/site.webmanifest"/>
             </Head>
-            <div className="dark:bg-slate-800 min-h-screen flex flex-col">
+            <div className="dark:bg-slate-800 min-h-screen flex flex-col transition-colors duration-300">
                 <NavBar />
                 <main className="flex-1">
                     {children}

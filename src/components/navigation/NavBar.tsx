@@ -34,7 +34,7 @@ const NavBar = () => {
     return (
         <nav 
             suppressHydrationWarning
-            className="bg-neutral-200 dark:bg-slate-700 shadow-lg flex justify-between w-full py-6 px-5"
+            className="bg-neutral-200 dark:bg-slate-700 shadow-lg flex justify-between w-full py-6 px-5 transition-colors duration-300"
         >
             <Drawer open={drawerOpen} handleClose={() => setDrawerOpen(false)}/>
             

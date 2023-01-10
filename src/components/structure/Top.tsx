@@ -3,7 +3,7 @@ import SearchBox from "../general/SearchBox";
 
 const Top = () => {
     return (
-        <header className="bg-neutral-200 dark:bg-slate-700 flex justify-between items-center gap-5 flex-col md:flex-row-reverse md:justify-center md:gap-32 px-10 pb-20 pt-10">
+        <header className="bg-neutral-200 dark:bg-slate-700 flex justify-between items-center gap-5 flex-col md:flex-row-reverse md:justify-center md:gap-32 px-10 pb-20 pt-10 transition-colors duration-300">
             
             <div>
                 <p className="text-3xl font-mono text-rose-500">

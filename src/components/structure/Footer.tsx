@@ -6,7 +6,7 @@ import NavItem from "../navigation/NavItem";
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col gap-5 py-5 justify-center items-center bg-neutral-200 dark:bg-slate-700 w-full">
+        <footer className="flex flex-col gap-5 py-5 justify-center items-center bg-neutral-200 dark:bg-slate-700 w-full transition-colors duration-300">
             <Name />
             <nav className="flex justify-center w-full gap-5">
                 <FooterNavCol title="Categories" grid>
