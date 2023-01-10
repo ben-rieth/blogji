@@ -5,9 +5,9 @@ export const CATEGORIES = [
         sub: 'My latest explorations in computer science, development, and coding'
     },
     {
-        id: "psych",
-        main: "Psychology",
-        sub: "My latest findings on the mind",
+        id: "dev",
+        main: "Dev Logs",
+        sub: "Updates on Projects I've Been Working On",
     },
     {
         id: "misc",
