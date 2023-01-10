@@ -18,7 +18,7 @@ const PostHeader:FC<PostHeaderProps> = ({ title, category }) => {
                     <BreadcrumbsLink title={category.main} href={categoryLinkFromId(category.id)} last />
                 </Breadcrumbs>
                 <h1 
-                    className="text-slate-800 dark:text-white text-4xl sm:text-5xl font-semibold mt-3 mb-6 font-handwriting"
+                    className="text-slate-800 dark:text-white text-4xl sm:text-5xl font-semibold mb-6 font-handwriting"
                 >
                     {title}
                 </h1>

@@ -9,7 +9,7 @@ type BreadcrumbLinkProps = {
 
 const BreadcrumbsLink:FC<BreadcrumbLinkProps> = ({ title, href, last }) => {
     return (
-        <li className="dark:text-slate-400 text-slate-600 text-xl">
+        <li className="dark:text-slate-400 text-slate-600 text-lg">
             {href ? (
                 <p>
                     <Link 
