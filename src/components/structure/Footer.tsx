@@ -3,6 +3,7 @@ import { categoryLinkFromId, GITHUB_LINK, LINKEDIN_LINK } from "../../utils/link
 import Name from "../general/Name";
 import FooterNavCol from "../navigation/FooterNavCol";
 import NavItem from "../navigation/NavItem";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
     return (
@@ -19,8 +20,18 @@ const Footer = () => {
                     ))}
                 </FooterNavCol>
                 <FooterNavCol title="Me Elsewhere">
-                    <NavItem title="Github" href={GITHUB_LINK}/>
-                    <NavItem title="Linkedin" href={LINKEDIN_LINK} />
+                    <NavItem 
+                        title="Github" 
+                        href={GITHUB_LINK} 
+                        icon={<AiFillGithub />}
+                    />
+
+                    <NavItem 
+                        title="Linkedin" 
+                        href={LINKEDIN_LINK} 
+                        icon={<AiFillLinkedin />} 
+                    />
+                    
                 </FooterNavCol>
             </nav>
             <p className="text-slate-500">2022 Benjamin Riethmeier.</p>
