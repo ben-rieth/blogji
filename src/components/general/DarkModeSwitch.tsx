@@ -6,8 +6,8 @@ const DarkModeSwitch = () => {
     const [darkMode, setDarkMode] = useDarkMode();
 
     const iconClass = classNames(
-        "w-6 md:w-8", 
-        "h-6 md:h-8",
+        "w-5 xs:w-6 md:w-8", 
+        "h-5 xs:h-6 md:h-8",
         { "fill-slate-100": darkMode }
     ); 
 
