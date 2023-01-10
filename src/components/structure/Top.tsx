@@ -10,8 +10,8 @@ const Top = () => {
                     <Image 
                         src="/me.jpg"
                         alt="Me, smiling"
-                        width={300}
-                        height={300}
+                        width={200}
+                        height={200}
                         className="rounded-full"
                         priority
                     />

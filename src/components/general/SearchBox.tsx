@@ -44,7 +44,7 @@ const SearchBox = () => {
                     setInputValue(event.currentTarget.value) 
                 }
             />
-            <p className="text-neutral-900 dark:text-neutral-200 text-3xl font-handwriting">
+            <p className="text-neutral-900 dark:text-neutral-200 text-2xl font-handwriting">
                 {posts.length}
             </p>
         </div>
