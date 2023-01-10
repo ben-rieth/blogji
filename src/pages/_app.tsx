@@ -4,8 +4,8 @@ import { Roboto_Flex, Caveat } from '@next/font/google';
 import "../styles/globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto'});
-const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' });
+const robotoFlex = Roboto_Flex({ subsets: ['latin'], variable: '--font-roboto', adjustFontFallback: false });
+const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat', adjustFontFallback: false });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   
