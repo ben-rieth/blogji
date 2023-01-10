@@ -20,6 +20,7 @@ let ContentSecurityPolicy = `
   connect-src ws: https: 'self';
   script-src 'unsafe-eval' 'self';
   prefetch-src 'self';
+  manifest-src 'self';
 `;
 
 /** @type {import("next").NextConfig} */
