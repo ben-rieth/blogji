@@ -1,12 +1,39 @@
-import { type FC } from "react";
+import axios, { AxiosError } from "axios";
+import { useEffect, useState, type FC } from "react";
 import { formatMMMMdoYYYY } from "../../utils/dates";
 
 type PostFooterProps = {
     date: string;
-    views: number | undefined;
+    title: string;
 }
 
-const PostFooter:FC<PostFooterProps> = ({ date, views }) => {
+const PostFooter:FC<PostFooterProps> = ({ date, title }) => {
+    
+    const [views, setViews] = useState<number | undefined>(undefined);
+
+    useEffect(() => {
+
+        (async () => {
+            try {
+                const response = await axios.post(
+                    `/api/posts/views`, 
+                    { 
+                        title: title
+                    }
+                ).then(res => res.data);
+
+                setViews(response?.views);
+
+                } catch (err) {
+                    if (err instanceof AxiosError) {
+                        console.log(err.request);
+                    }
+                    console.log(err);
+                }
+        })();
+
+    }, [title]);
+    
     return (
         <div 
             suppressHydrationWarning
