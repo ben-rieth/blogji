@@ -29,6 +29,10 @@ const Post: FC<PostProps> = ({ frontmatter, code}) => {
             <PostHeader 
                 title={frontmatter.title}
                 category={category ? category : { id: 'misc', main: "Misc", sub: ""}}
+                coverImage={frontmatter.coverImage}
+                coverImageAlt={frontmatter.coverImageAlt}
+                readingTime={frontmatter.readingTime}
+                publishDate={frontmatter.publishedOn}
             />
             <PostArticle articleCode={code} />
             <PostFooter date={frontmatter.publishedOn} title={frontmatter.title} />
