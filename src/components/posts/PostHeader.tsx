@@ -18,13 +18,13 @@ const PostHeader:FC<PostHeaderProps> = ({ title, category, coverImage, coverImag
 
     return (
         <header className="dark:bg-slate-700 bg-neutral-200 pb-5 transition-colors duration-300">
-            <div className="mx-auto max-w-screen-lg px-10">
+            <div className="mx-auto max-w-screen-lg px-7 sm:px-10">
                 <Breadcrumbs>
                     <BreadcrumbsLink title="Home" href={BLOG_HOME}/>
                     <BreadcrumbsLink title={category.main} href={categoryLinkFromId(category.id)} last />
                 </Breadcrumbs>
 
-                <div className="relative aspect-video my-5 mx-5">
+                <div className="relative aspect-video my-5 md:mx-5">
                     <Image 
                         className="object-cover rounded-lg"
                         src={`/thumbnails/${coverImage}`}
@@ -34,12 +34,12 @@ const PostHeader:FC<PostHeaderProps> = ({ title, category, coverImage, coverImag
                 </div>
                 
                 <h1 
-                    className="text-slate-800 dark:text-white text-4xl sm:text-5xl font-semibold font-handwriting"
+                    className="text-slate-800 dark:text-white text-4xl sm:text-5xl font-semibold font-handwriting mb-2"
                 >
                     {title}
                 </h1>
                 
-                <p className="dark:text-slate-400 text-slate-600 text-md pl-2">
+                <p className="dark:text-slate-400 text-slate-600 text-md pl-0.5">
                     {formatMMMMdoYYYY(publishDate)} | {readingTime} min read
                 </p>
             </div>
